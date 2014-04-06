@@ -24,3 +24,4 @@ constant/cellToRegion
 constant/dynamicMeshDict
 !constant/polyMesh/blockMeshDict
 !0.org/
+__pycache__/

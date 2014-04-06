@@ -9,17 +9,16 @@ from __future__ import division, print_function
 import matplotlib.pyplot as plt
 import numpy as np 
 import foampy
+from gendynmeshdict import meantsr
 
 t, torque, drag = foampy.load_all_torque_drag(torque_axis="x")
-
-omega = 40.0
-theta = omega*t*180.0/np.pi
 
 # Compute tip speed ratio
 R = 0.13
 U = 1.0
-tsr = omega*R/U
-meantsr = np.mean(tsr)
+omega = -meantsr*U/R 		# direction is reversed
+theta = omega*t*180.0/np.pi
+
 print("Mean tsr:", meantsr)
 
 # Pick an index to start from for mean calculations and plotting
@@ -28,13 +27,12 @@ try:
     i = np.where(np.round(theta) == 360)[0][0]
 except IndexError:
     i = 5
-#i2 = np.where(np.round(theta) == 218)[0][0]
 i2 = -1
 
 # Compute power coefficient
-area = 1.0
+area = np.pi*R**2
 power = torque*omega
-cp = power/(0.5*1000*area*1**3)
+cp = power/(0.5*1000*area*U**3)
 print("Mean cp:", np.mean(cp[i:i2]))
 
 # Compute drag coefficient
