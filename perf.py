@@ -24,7 +24,7 @@ print("Mean tsr:", meantsr)
 # Pick an index to start from for mean calculations and plotting
 # (allow turbine to reach steady state)
 try:
-    i = np.where(np.round(theta) == 360)[0][0]
+    i = np.where(np.round(theta) == 100)[0][0]
 except IndexError:
     i = 5
 i2 = -1
