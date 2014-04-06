@@ -1,0 +1,30 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+# Move previous logs to oldLogs directory
+mkdir oldLogs
+mv log.decomposePar oldLogs/log.decomposePar
+mv log.pimpleDyMFoam oldLogs/log.pimpleDyMFoam
+mv log.reconstructPar oldLogs/log.reconstructPar
+
+./gendynmeshdict.py
+
+runApplication decomposePar -latestTime
+
+runParallel `getApplication` 4
+
+runApplication reconstructPar
+
+rm -rf processor*
+
+vorticity
+R
+
+python "/home/pete/Google Drive/Python/OpenFOAM/send_email.py"
+
+notify-send "OpenFOAM" "Simulation finished."
+
+./perf.py
