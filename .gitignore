@@ -1,6 +1,5 @@
 *.gz
 log.*
-0/
 oldLogs/
 postProcessing/
 images/
