@@ -17,7 +17,7 @@ t, torque, drag = foampy.load_all_torque_drag(torque_axis="x")
 R = 0.13
 U = 1.0
 omega = -meantsr*U/R 		# direction is reversed
-theta = omega*t*180.0/np.pi
+theta = -omega*t*180.0/np.pi
 
 print("Mean tsr:", meantsr)
 
