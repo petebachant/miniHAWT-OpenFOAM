@@ -36,8 +36,8 @@ boundaryField
 
     turbine
     {
-        type            fixedValue;
-	value		uniform 1e-12;
+        type            kqRWallFunction;
+        value           $internalField;
     }
 
     walls

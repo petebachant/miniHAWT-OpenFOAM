@@ -24,7 +24,7 @@ boundaryField
 
     turbine
     {
-        type            nutUSpaldingWallFunction;
+        type            nutkWallFunction;
         value           uniform 0;
     }
 
