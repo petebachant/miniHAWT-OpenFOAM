@@ -16,12 +16,11 @@ processor*/
 7*/
 8*/
 9*/
+!0.org
 constant/extendedFeatureEdgeMesh
 *.eMesh
 constant/polyMesh/*
+!constant/polyMesh/blockMeshDict
 constant/cellToRegion
 constant/dynamicMeshDict
-!constant/polyMesh/blockMeshDict
-!0.org/
-__pycache__/
 *.OpenFOAM
