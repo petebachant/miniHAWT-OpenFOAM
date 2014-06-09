@@ -160,14 +160,14 @@ def plotwake(plotlist=["meanu"], t1=3.0, save=False, savepath="",
         if save:
             plt.savefig(savepath+'v-wquiver'+savetype)
     if "xvorticity" in plotlist or "all" in plotlist:
-        plt.figure(figsize=(9,8))
-        cs = plt.contourf(y_R, z_H, xvorticity, 10, cmap=plt.cm.coolwarm,
-                          levels=np.linspace(-2.5,2.5,21))
+        plt.figure(figsize=(6, 8))
+        cs = plt.contourf(y_R, z_H, xvorticity, 10, cmap=plt.cm.coolwarm)
+                          #levels=np.linspace(-2.5,2.5,21))
         plt.xlabel(r'$y/R$')
-        plt.ylabel(r'$z/H$')
+        plt.ylabel(r'$z/R$')
         cb = plt.colorbar(cs, shrink=1, extend='both', 
-                          orientation='horizontal', pad=0.12)
-        cb.set_ticks(np.linspace(-2.5,2.5,11), update_ticks=True)
+                          orientation='horizontal', pad=0.08)
+#        cb.set_ticks(np.linspace(-2.5,2.5,11), update_ticks=True)
         cb.set_label(r"$\Omega_x$")
         #turb_lines()
         ax = plt.axes()
@@ -176,18 +176,18 @@ def plotwake(plotlist=["meanu"], t1=3.0, save=False, savepath="",
         if save:
             plt.savefig(savepath+'/xvorticity_3drans'+savetype)
     if "meancomboquiv" in plotlist or "all" in plotlist:
-        plt.figure(figsize=(9, 8))
+        plt.figure(figsize=(6, 8))
         # Add contours of mean velocity
         cs = plt.contourf(y_R, z_H, u, 20, cmap=plt.cm.coolwarm)
         cb = plt.colorbar(cs, shrink=1, extend='both', 
-                          orientation='horizontal', pad=0.12)
+                          orientation='horizontal', pad=0.08)
         cb.set_label(r'$U/U_{\infty}$')
         plt.hold(True)
         # Make quiver plot of v and w velocities
         Q = plt.quiver(y_R, z_H, v, w, angles='xy', width=0.0022)
         plt.xlabel(r'$y/R$')
-        plt.ylabel(r'$z/H$')
-        plt.quiverkey(Q, 0.8, 0.22, 0.1, r'$0.1 U_\infty$',
+        plt.ylabel(r'$z/R$')
+        plt.quiverkey(Q, 0.8, 0.19, 0.1, r'$0.1 U_\infty$',
                       labelpos='E',
                       coordinates='figure',
                       fontproperties={'size': 'small'})
