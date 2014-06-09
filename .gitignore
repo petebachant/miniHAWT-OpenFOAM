@@ -25,3 +25,4 @@ constant/cellToRegion
 constant/dynamicMeshDict
 *.OpenFOAM
 __pycache__/
+system/sampleDict
