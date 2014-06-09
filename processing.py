@@ -195,7 +195,7 @@ def plotwake(plotlist=["meanu"], t1=3.0, save=False, savepath="",
         ax.set_aspect(1)
         plt.tight_layout()
         if save:
-            plt.savefig(savepath+"\\meancomboquiv_miniHAWT"+savetype)
+            plt.savefig(savepath+"/meancomboquiv_miniHAWT"+savetype)
     plt.show()
         
 def plotexpwake(Re_D, quantity, z_H=0.0, save=False, savepath="", 
