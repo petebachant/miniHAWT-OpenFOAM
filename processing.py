@@ -174,7 +174,7 @@ def plotwake(plotlist=["meanu"], t1=3.0, save=False, savepath="",
         ax.set_aspect(1)
         plt.tight_layout()
         if save:
-            plt.savefig(savepath+'/xvorticity_3drans'+savetype)
+            plt.savefig(savepath+'/xvorticity_miniHAWT'+savetype)
     if "meancomboquiv" in plotlist or "all" in plotlist:
         plt.figure(figsize=(6, 8))
         # Add contours of mean velocity
@@ -195,7 +195,7 @@ def plotwake(plotlist=["meanu"], t1=3.0, save=False, savepath="",
         ax.set_aspect(1)
         plt.tight_layout()
         if save:
-            plt.savefig(savepath+"\\meancomboquiv_AD"+savetype)
+            plt.savefig(savepath+"\\meancomboquiv_miniHAWT"+savetype)
     plt.show()
         
 def plotexpwake(Re_D, quantity, z_H=0.0, save=False, savepath="", 
@@ -223,7 +223,7 @@ def plotexpwake(Re_D, quantity, z_H=0.0, save=False, savepath="",
     plt.tight_layout()
 
 def main():
-    p = "Google Drive/Research/Papers/JOT CFT near-wake/Figures"
+    p = "Google Drive/temp"
     if "linux" in sys.platform:
         p = "/home/pete/" + p
     elif "win" in sys.platform:
@@ -231,7 +231,7 @@ def main():
     plt.close("all")
     
     plotwake(plotlist=["xvorticity", "meancomboquiv"], t1=2.0, 
-             save=False, savepath=p)
+             save=True, savepath=p)
 #    calcwake()
 
 if __name__ == "__main__":
